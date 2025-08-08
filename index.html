@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Projects Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>3D Projects</h1>
+
+  <input type="text" id="search" placeholder="Search projects...">
+
+  <div class="gallery" id="gallery">
+    <!-- პროექტები ჩამოთვლილი -->
+    <div class="card" data-title="photo1">
+      <img src="assets/photo1.png" alt="fotoo" onclick="openScene('scenes/animation1.html')">
+      <p>photo1</p>
+    </div>
+    <div class="card" data-title="photo2">
+      <img src="assets/photo2.png" alt="futaa" onclick="openScene('scenes/animation2.html')">
+      <p>photo2</p>
+    </div>
+    <div class="card" data-title="photo3">
+      <img src="assets/photo3.png" alt="fotoo3" onclick="openScene('scenes/animation3.html')">
+      <p>photo3</p>
+    </div>
+    <div class="card" data-title="photo4">
+      <img src="assets/photo4.png" alt="futaa4" onclick="openScene('scenes/animation4.html')">
+      <p>photo4</p>
+    </div>
+      <div class="card" data-title="photo5">
+      <img src="assets/photo5.png" alt="fotoo5" onclick="openScene('scenes/animation5.html')">
+      <p>photo5</p>
+    </div>
+    <div class="card" data-title="photo6">
+      <img src="assets/photo6.png" alt="futaa6" onclick="openScene('scenes/animation6.html')">
+      <p>photo6</p>
+    </div>
+    <div class="card" data-title="photo7">
+      <img src="assets/photo7.png" alt="fotoo7" onclick="openScene('scenes/animation7.html')">
+      <p>photo7</p>
+    </div>
+    <div class="card" data-title="photo8">
+      <img src="assets/photo8.png" alt="futaa8" onclick="openScene('scenes/animation8.html')">
+      <p>photo8</p>
+    </div>
+    <!-- დაამატე მეტი პროექტი ასე -->
+  </div>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<iframe id="viewer" width="800" height="500" allow="fullscreen; xr-spatial-tracking" src="https://superspl.at/s?id=87ba23f7">
+
+</iframe>
+  <script>
+    function openScene(url) {
+      window.open(url, '_blank');
+    }
+
+    const searchInput = document.getElementById('search');
+    const cards = document.querySelectorAll('.card');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        card.style.display = title.includes(query) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
